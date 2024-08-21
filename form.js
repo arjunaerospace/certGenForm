@@ -57,7 +57,7 @@ async function generateLink(
   }
 
   content = `v:${version},t:${certificateType},c:${certificateStyle},n:${name},s:${activityStartDate},e:${activityEndDate}`;
-  const url = "https://arjunaerospace.github.io/certViewer/";
+  const url = "https://arjunaerospace.github.io/certView/";
   let link = `${url}?m=`;
 
   const plainText = content; // 190 characters limit
