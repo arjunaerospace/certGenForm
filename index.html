@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="orm.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <form id="myForm">
+            <div class="form-group">
+                <label for="version">Version:</label>
+                <select id="version" name="version">
+                    <option value="0">0.0.1d</option>
+                    <option value="1">1</option>
+                    <option value="1dev">1dev</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="certificateStyle">Certificate Style:</label>
+                <select id="certificateStyle" name="certificateStyle">
+                    <option value="Course">Tech Blue 01a</option>
+                    <option value="Internship">Tech Blue 01b</option>
+                    <option value="Custom">White Golden 01a</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="certificateType">Certificate Type:</label>
+                <select id="certificateType" name="certificateType">
+                    <option value="Internship">Internship</option>
+                    <option value="Course">Course</option>
+                    <!-- <option value="Custom">Custom</option> -->
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label for="activityDuration">Certificate ID:</label>
+                <input type="text" id="activityDuration" name="activityDuration">
+            </div> -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <!-- <div class="form-group">
+                <label for="key">Key:</label>
+                <input type="text" id="key" name="key">
+            </div> -->
+            <!-- <div class="form-group">
+                <label for="activityName">Activity Name:</label>
+                <input type="text" id="activityName" name="activityName">
+            </div> -->
+            <div class="form-group">
+                <label for="activityStartDate">Activity Starting Date:</label>
+                <input type="date" id="activityStartDate" name="activityStartDate">
+            </div>
+            <div class="form-group">
+                <label for="activityEndDate">Activity Ending Date:</label>
+                <input type="date" id="activityEndDate" name="activityEndDate">
+            </div>
+            <!-- <div class="form-group">
+                <label for="additionalComment">Additional Comment:</label>
+                <input type="text" id="additionalComment" name="additionalComment">
+            </div> -->
+            <button type="submit">Submit</button>
+        </form>
+        <div class="result" id="resultSection"></div>
+    </div>
+
+    <!-- <script src="../../src/form.js"></script> -->
+    <script src="form.js"></script>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const resultSection = document.getElementById("resultSection");
+            const version = document.getElementById("version").value;
+            const certificateStyle = document.getElementById("certificateStyle").value;
+            const certificateType = document.getElementById("certificateType").value;
+            const name = document.getElementById("name").value;
+            // const key = document.getElementById("key").value;
+            // const activityName = document.getElementById("activityName").value;
+            const activityStartDate = document.getElementById("activityStartDate").value;
+            const activityEndDate = document.getElementById("activityEndDate").value;
+            // const additionalComment = document.getElementById("additionalComment").value;
+
+            // Assuming generateLink() is defined in index.js
+            generateLink(version, certificateType, certificateStyle, name, activityStartDate, activityEndDate).then((resultHtml) => {
+                resultSection.innerHTML = resultHtml
+                resultSection.style.display = "block";
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
